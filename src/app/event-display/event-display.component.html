@@ -2,8 +2,6 @@
     <header><app-event-header [event]="event"></app-event-header></header>
     <main>
 
-    <hr>
-
     <div class="row">
         <div [ngClass]="{'col-md-7': displayMap, 'col-md-12': !displayMap}">
           <app-event-summary [event]="event" [dateValidityProvider]="event"></app-event-summary>
@@ -78,7 +76,7 @@
           </div>
           <div class="row justify-content-end">
               <div class="col-md-4 col-12">
-                <button type="submit" id="waiting-queue-subscribe" class="btn btn-success btn-block " translate="show-event.sold-out.subscribe"></button>
+                <button type="submit" id="waiting-queue-subscribe" class="btn btn-primary btn-block " translate="show-event.sold-out.subscribe"></button>
               </div>
           </div>
       </form>
@@ -189,7 +187,7 @@
               </div>
             </div>
             <div class="col-12 col-md-4 text-center">
-              <button class="btn btn-success" translate="show-event.promo-code.apply" type="button" [disabled]="promoCodeForm.invalid" (click)="applyPromoCode()"></button>
+              <button class="btn btn-primary" translate="show-event.promo-code.apply" type="button" [disabled]="promoCodeForm.invalid" (click)="applyPromoCode()"></button>
               <button class="btn btn-light ml-2" translate="reservation-page-complete.cancel" type="button" (click)="togglePromoCodeVisible()"></button>
             </div>
           </div>
@@ -198,13 +196,12 @@
 
       <app-recaptcha [apiKey]="event.captchaConfiguration.recaptchaApiKey" (recaptchaResponse)="handleRecaptchaResponse($event)" *ngIf="event.captchaConfiguration.captchaForTicketSelection && event.captchaConfiguration.recaptchaApiKey"></app-recaptcha>
 
-      <hr class="mt-5">
-      <app-event-footer-links [event]="event"></app-event-footer-links>
-
-      <div class="row d-flex justify-content-between mobile-add-margin-bottom">
-        <div class="col-md-5 order-md-1 col-12"><button type="submit" class="block-button btn btn-success" translate="show-event.continue"></button></div>
-        <div class="col-md-5 order-md-0 col-12 "><a [href]="event.websiteUrl" class="block-button btn btn-light" translate="to-event-site"></a></div>
+      <div class="row d-flex justify-content-center mobile-add-margin-bottom py-5">
+        <div class="col-md-3 order-md-1 col-12"><button type="submit" class="block-button btn btn-primary" translate="show-event.continue"></button></div>
+        <div class="col-md-3 order-md-0 col-12 "><a [href]="event.websiteUrl" class="block-button btn btn-light" translate="to-event-site"></a></div>
       </div>
+
+      <app-event-footer-links [event]="event"></app-event-footer-links>
     </form>
 
     </main>

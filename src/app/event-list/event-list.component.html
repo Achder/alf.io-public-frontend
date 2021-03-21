@@ -1,12 +1,12 @@
 <ng-container *ngIf="events">
   <app-language-selector [contentLanguages]="languages"></app-language-selector>
 
-  <h1 translate="event-list.title"></h1>
+  <h1 translate="event-list.title" class="pb-3"></h1>
 
   <div class="card-deck" *ngFor="let chunk of events">
-    <div class="card card-light event-card mb-3" *ngFor="let event of chunk">
-      <div class="card-header bg-white event-header">
-        <img [src]="'/file/'+event.fileBlobId" class="mx-auto img-responsive" alt="" aria-hidden="true" role="presentation">
+    <div class="card shadow bg-transparent event-card mb-3" *ngFor="let event of chunk">
+      <div class="card-header p-0">
+        <img [src]="'/file/'+event.fileBlobId" class="mx-auto img-fluid w-100 p-0" alt="" aria-hidden="true" role="presentation">
         <div class="h4 online-flag" *ngIf="isEventOnline(event)"><span class="badge badge-secondary">{{'event.online.badge' | translate}}</span></div>
       </div>
       <div class="card-body">
@@ -14,9 +14,9 @@
         <app-event-dates [dateValidityProvider]="event" [displayIcon]="true"></app-event-dates>
         <p class="card-text text-muted mt-1" *ngIf="!isEventOnline(event)">{{event.location}}</p>
       </div>
-      <div class="card-footer border-top-0 bg-white">
-        <div class="d-flex justify-content-end">
-          <a [routerLink]="['event', event.shortName]" class="btn btn-success stretched-link">{{'event-list.link' | translate}}<span class="sr-only"> {{event.displayName}}</span></a>
+      <div class="card-footer border-top-0">
+        <div class="d-flex justify-content-end pb-3 pr-2">
+          <a [routerLink]="['event', event.shortName]" class="btn btn-primary stretched-link">{{'event-list.link' | translate}}<span class="sr-only"> {{event.displayName}}</span></a>
         </div>
       </div>
     </div>

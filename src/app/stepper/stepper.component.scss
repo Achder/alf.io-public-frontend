@@ -42,11 +42,11 @@
 }
 
 .badge-success {
-    background-color: #449d44 !important;
+    background-color: var(--success) !important;
 }
 
 .wizard2 .wizard2-current .badge {
-    background-color: #007ACC;
+    background-color: var(--primary);
 }
 
 .wizard2 span:nth-child(2) {
@@ -55,6 +55,5 @@
 }
 
 .wizard2 .wizard2-current span:nth-child(2) {
-    font-weight:bold;
-    color: black;
+    
 }

@@ -2,7 +2,7 @@
     <header>
         <app-event-header [event]="event"></app-event-header>
     </header>
-    <main class="mt-5">
+    <main>
         <div class="alert mb-5" [ngClass]="{'alert-info': !ticket.onlineEventStarted, 'alert-success': ticket.onlineEventStarted}" *ngIf="isEventOnline && !ticketFormVisible">
           <div class="font-weight-bold text-center">
             <span *ngIf="!ticket.onlineEventStarted">{{'event.online.not-started' | translate:{ '0' : ticketOnlineCheckInDate } }}</span>
@@ -10,7 +10,7 @@
           </div>
         </div>
         <h2>{{'show-ticket.header.title' | translate:{ '0' : event.displayName } }}</h2>
-        <div class="card mt-5" [ngClass]="{'border-left-warning': !ticket.assigned}">
+        <div class="card shadow mt-5" [ngClass]="{'border-left-warning': !ticket.assigned}">
             <div class="card-body">
               <div class="attendees-data d-md-flex w-100 justify-content-between">
                 <h3 class="card-title flex-md-shrink-1"><fa-icon [icon]="['fas', ticket.assigned ? 'check' : 'exclamation-triangle']" size="xs" [classes]="[ ticket.assigned ? 'text-success' : 'text-warning', 'd-none', 'd-md-inline']" a11yRole="presentation"></fa-icon> <small class="ml-2 text-muted">{{categoryName}}</small></h3>
@@ -42,10 +42,10 @@
                 <div class="alert alert-info" translate="reservation-page-complete.info-update" *ngIf="event.assignmentConfiguration.enableTicketTransfer && ticket.assigned && !ticket.locked"></div>
                 <form [formGroup]="formGroup" (submit)="updateTicket()">
                     <app-ticket-form [ticket]="ticket" [event]="event" [form]="formGroup"></app-ticket-form>
-                    <div class="bg-white pb-3 pt-3" [class.sticky]="ticket.ticketFieldConfigurationAfterStandard.length > 0">
+                    <div class="bg-dark pb-3 pt-3" [class.sticky]="ticket.ticketFieldConfigurationAfterStandard.length > 0">
                       <div class="row d-flex justify-content-between">
                         <div class="col-md-5 order-md-1 col-12">
-                          <button type="submit" class="btn btn-success btn-block" *ngIf="canUpdateTicket">{{ (ticket.assigned ? 'reservation-page-complete.update' : 'reservation-page-complete.assign') | translate}}</button>
+                          <button type="submit" class="btn btn-primary btn-block" *ngIf="canUpdateTicket">{{ (ticket.assigned ? 'reservation-page-complete.update' : 'reservation-page-complete.assign') | translate}}</button>
                         </div>
                         <div class="col-md-5 mt-2 mt-md-0 order-md-0 col-12">
                           <button type="button" (click)="ticketFormVisible = false" translate="reservation-page-complete.cancel" class="btn btn-light btn-block"></button>

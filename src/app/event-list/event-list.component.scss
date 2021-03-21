@@ -19,7 +19,9 @@ a.no-decoration:hover {
 }
 
 .event-card:hover {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    box-shadow: 0 1rem 2rem var(--primary) !important;
+    transform: scale(1.02);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .online-flag {
